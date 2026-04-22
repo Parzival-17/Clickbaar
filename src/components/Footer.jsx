@@ -46,40 +46,41 @@ const services = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-text text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+    <footer className="relative bg-[#04040f] border-t border-white/5 overflow-hidden">
+      {/* Subtle glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-indigo-600/10 rounded-full blur-3xl" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
             <Link to="/" className="text-2xl font-extrabold text-white">
-              Click<span className="text-accent">baar</span>
+              Click<span className="gradient-text">baar</span>
             </Link>
-            <p className="mt-3 text-sm text-white/60 leading-relaxed">
+            <p className="mt-3 text-sm text-white/40 leading-relaxed">
               Professionele websites voor lokale bedrijven. Snel. Betaalbaar. Effectief.
             </p>
             <div className="flex gap-3 mt-5">
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn"
-                className="bg-white/10 hover:bg-accent p-2 rounded-lg transition-colors">
-                <LinkedinIcon size={18} />
-              </a>
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" aria-label="Facebook"
-                className="bg-white/10 hover:bg-accent p-2 rounded-lg transition-colors">
-                <FacebookIcon size={18} />
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram"
-                className="bg-white/10 hover:bg-accent p-2 rounded-lg transition-colors">
-                <InstagramIcon size={18} />
-              </a>
+              {[
+                { Icon: LinkedinIcon, href: 'https://linkedin.com', label: 'LinkedIn' },
+                { Icon: FacebookIcon, href: 'https://facebook.com', label: 'Facebook' },
+                { Icon: InstagramIcon, href: 'https://instagram.com', label: 'Instagram' },
+              ].map(({ Icon, href, label }) => (
+                <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label}
+                  className="glass hover:bg-white/10 p-2 rounded-lg transition-all text-white/50 hover:text-white">
+                  <Icon size={18} />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Quick links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Navigatie</h3>
-            <ul className="space-y-2">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-4">Navigatie</h3>
+            <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.to + link.label}>
-                  <Link to={link.to} className="text-sm text-white/70 hover:text-accent transition-colors">
+                  <Link to={link.to} className="text-sm text-white/50 hover:text-white transition-colors">
                     {link.label}
                   </Link>
                 </li>
@@ -89,11 +90,11 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Services</h3>
-            <ul className="space-y-2">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-4">Services</h3>
+            <ul className="space-y-2.5">
               {services.map((s) => (
                 <li key={s.label}>
-                  <Link to={s.to} className="text-sm text-white/70 hover:text-accent transition-colors">
+                  <Link to={s.to} className="text-sm text-white/50 hover:text-white transition-colors">
                     {s.label}
                   </Link>
                 </li>
@@ -103,33 +104,33 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-white/40 mb-4">Contact</h3>
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-white/30 mb-4">Contact</h3>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-sm text-white/70">
-                <Mail size={16} className="text-accent shrink-0" />
-                <a href="mailto:info@clickbaar.nl" className="hover:text-accent transition-colors">
+              <li className="flex items-center gap-2 text-sm text-white/50">
+                <Mail size={15} className="text-accent shrink-0" />
+                <a href="mailto:info@clickbaar.nl" className="hover:text-white transition-colors">
                   info@clickbaar.nl
                 </a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-white/70">
-                <Phone size={16} className="text-accent shrink-0" />
-                <a href="tel:+31612345678" className="hover:text-accent transition-colors">
+              <li className="flex items-center gap-2 text-sm text-white/50">
+                <Phone size={15} className="text-accent shrink-0" />
+                <a href="tel:+31612345678" className="hover:text-white transition-colors">
                   +31 6 12345678
                 </a>
               </li>
-              <li className="flex items-start gap-2 text-sm text-white/70">
-                <MapPin size={16} className="text-accent shrink-0 mt-0.5" />
-                <span>Heiloo, Noord-Holland<br />Nederland</span>
+              <li className="flex items-start gap-2 text-sm text-white/50">
+                <MapPin size={15} className="text-accent shrink-0 mt-0.5" />
+                <span>Heiloo, Noord-Holland</span>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/40">
+        <div className="border-t border-white/5 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/25">
           <span>© 2026 Clickbaar. Alle rechten voorbehouden.</span>
           <div className="flex gap-4">
-            <Link to="/contact" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link to="/contact" className="hover:text-white transition-colors">Algemene Voorwaarden</Link>
+            <Link to="/contact" className="hover:text-white/60 transition-colors">Privacy Policy</Link>
+            <Link to="/contact" className="hover:text-white/60 transition-colors">Algemene Voorwaarden</Link>
           </div>
         </div>
       </div>

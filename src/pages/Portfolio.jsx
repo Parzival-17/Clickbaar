@@ -9,11 +9,10 @@ const projects = [
     industry: "Restaurant & Horeca",
     category: "website",
     location: "Haarlem",
-    description: "Volledige website redesign met online reserveringssysteem en menu management. Resultaat: 40% meer reserveringen via de website.",
-    features: ["Online reserveringen", "Menu management", "Google Maps integratie", "SEO geoptimaliseerd"],
-    color: "from-orange-400 to-red-500",
+    description: "Website redesign met online reserveringssysteem. Resultaat: 40% meer reserveringen.",
+    features: ["Online reserveringen", "Menu management", "Google Maps", "SEO"],
+    gradient: "from-orange-500/40 to-red-600/40",
     emoji: "🍽️",
-    bg: "bg-orange-50",
   },
   {
     id: 2,
@@ -21,11 +20,10 @@ const projects = [
     industry: "Kapsalon & Beauty",
     category: "website",
     location: "Alkmaar",
-    description: "Nieuwe website met online boekingssysteem voor de kapsalon. Nu vindbaar op Google voor 'kapper Alkmaar'.",
-    features: ["Online booking", "Behandelingen overzicht", "Portfolio galerie", "Lokale SEO"],
-    color: "from-pink-400 to-purple-500",
+    description: "Nieuwe website met online boekingssysteem. Nu vindbaar voor 'kapper Alkmaar'.",
+    features: ["Online booking", "Portfolio galerie", "Behandelingen", "Lokale SEO"],
+    gradient: "from-pink-500/40 to-purple-600/40",
     emoji: "✂️",
-    bg: "bg-pink-50",
   },
   {
     id: 3,
@@ -33,11 +31,10 @@ const projects = [
     industry: "Fitness & Coaching",
     category: "seo",
     location: "Noord-Holland",
-    description: "Personal brand website voor een fitness coach. Clean design met testimonials, programma-informatie en online contact.",
-    features: ["Personal branding", "Programma's overzicht", "Testimonials", "Lead generatie formulier"],
-    color: "from-green-400 to-teal-500",
+    description: "Personal brand website met focus op lead generatie en programma-informatie.",
+    features: ["Personal branding", "Programma's", "Testimonials", "Lead formulier"],
+    gradient: "from-green-500/40 to-teal-600/40",
     emoji: "💪",
-    bg: "bg-green-50",
   },
   {
     id: 4,
@@ -45,11 +42,10 @@ const projects = [
     industry: "Retail & Winkel",
     category: "ecommerce",
     location: "Heiloo",
-    description: "E-commerce website met productcatalogus en contactformulier voor offertes. Simpel maar effectief voor de lokale markt.",
+    description: "E-commerce site met productcatalogus en offerte formulier voor de lokale markt.",
     features: ["Productcatalogus", "Offerte formulier", "Winkel info", "Google Maps"],
-    color: "from-blue-400 to-indigo-500",
+    gradient: "from-blue-500/40 to-indigo-600/40",
     emoji: "🚲",
-    bg: "bg-blue-50",
   },
   {
     id: 5,
@@ -57,23 +53,21 @@ const projects = [
     industry: "Service & Vakman",
     category: "website",
     location: "Castricum",
-    description: "Lead generation website voor een loodgietersbedrijf. Focus op snel contact opnemen met duidelijke call-to-actions.",
-    features: ["Urgentie CTA's", "Diensten overzicht", "Review sectie", "Lokale SEO"],
-    color: "from-cyan-400 to-blue-500",
+    description: "Lead generation website met urgentie CTA's en duidelijke contactopties.",
+    features: ["Urgentie CTA's", "Diensten overzicht", "Reviews", "Lokale SEO"],
+    gradient: "from-cyan-500/40 to-blue-600/40",
     emoji: "🔧",
-    bg: "bg-cyan-50",
   },
   {
     id: 6,
     title: "Consultant & Adviseur",
-    industry: "Consultancy & Advies",
+    industry: "Consultancy",
     category: "seo",
     location: "Amsterdam",
-    description: "Professioneel portfolio voor een zelfstandig consultant. Strak design met case studies en LinkedIn-integratie.",
-    features: ["Case studies", "Blog sectie", "LinkedIn integratie", "Professioneel design"],
-    color: "from-violet-400 to-purple-600",
+    description: "Professioneel portfolio voor een zelfstandig consultant met case studies.",
+    features: ["Case studies", "Blog sectie", "LinkedIn", "Professioneel design"],
+    gradient: "from-violet-500/40 to-purple-700/40",
     emoji: "📊",
-    bg: "bg-violet-50",
   },
 ]
 
@@ -87,27 +81,27 @@ const filters = [
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('all')
 
-  const filtered = activeFilter === 'all'
-    ? projects
-    : projects.filter((p) => p.category === activeFilter)
+  const filtered = activeFilter === 'all' ? projects : projects.filter((p) => p.category === activeFilter)
 
   return (
     <>
       {/* Page header */}
-      <section className="bg-deep-blue py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider">Portfolio</span>
+      <section className="relative bg-[#07071a] py-24 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-64 bg-purple-600/15 rounded-full blur-[100px]" />
+        <div className="absolute inset-0 grid-pattern" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-accent font-semibold text-sm uppercase tracking-widest">Portfolio</span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">
-            Onze projecten
+            Onze <span className="gradient-text">projecten</span>
           </h1>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            Bekijk een selectie van websites die we gebouwd hebben voor lokale bedrijven in Nederland.
+          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+            Bekijk een selectie van websites voor lokale bedrijven in Nederland.
           </p>
         </div>
       </section>
 
-      {/* Portfolio grid */}
-      <section className="bg-light-bg py-20">
+      {/* Portfolio */}
+      <section className="bg-[#09091e] py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filters */}
           <div className="flex flex-wrap gap-3 mb-10 justify-center">
@@ -115,10 +109,10 @@ export default function Portfolio() {
               <button
                 key={f.key}
                 onClick={() => setActiveFilter(f.key)}
-                className={`px-5 py-2 rounded-full text-sm font-semibold transition-colors ${
+                className={`px-5 py-2 rounded-full text-sm font-semibold transition-all ${
                   activeFilter === f.key
-                    ? 'bg-deep-blue text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-100 border border-gray-200'
+                    ? 'bg-accent text-white glow-orange'
+                    : 'glass text-white/50 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {f.label}
@@ -127,31 +121,25 @@ export default function Portfolio() {
           </div>
 
           {/* Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {filtered.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-sm hover-lift border border-gray-100"
-              >
-                {/* Image placeholder */}
-                <div className={`h-48 bg-gradient-to-br ${project.color} flex items-center justify-center relative`}>
-                  <span className="text-7xl">{project.emoji}</span>
-                  <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">
+              <div key={project.id} className="glass glass-hover rounded-2xl overflow-hidden">
+                {/* Image area */}
+                <div className={`h-44 bg-gradient-to-br ${project.gradient} flex items-center justify-center relative`}>
+                  <span className="text-6xl">{project.emoji}</span>
+                  <div className="absolute top-3 right-3 glass text-white/70 text-xs font-medium px-2.5 py-1 rounded-full">
                     {project.location}
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <div className={`inline-block text-xs font-semibold px-2 py-1 rounded-md mb-3 ${project.bg} text-gray-700`}>
-                    {project.industry}
-                  </div>
-                  <h3 className="text-lg font-bold text-deep-blue mb-2">{project.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{project.description}</p>
+                  <span className="text-xs font-semibold text-white/30 uppercase tracking-wider">{project.industry}</span>
+                  <h3 className="text-base font-bold text-white mt-1 mb-2">{project.title}</h3>
+                  <p className="text-white/40 text-sm leading-relaxed mb-4">{project.description}</p>
 
-                  {/* Features */}
                   <div className="flex flex-wrap gap-1.5 mb-4">
                     {project.features.map((f) => (
-                      <span key={f} className="text-xs bg-light-bg text-gray-600 px-2 py-1 rounded-md">
+                      <span key={f} className="text-xs glass px-2 py-1 rounded-md text-white/50">
                         {f}
                       </span>
                     ))}
@@ -159,10 +147,9 @@ export default function Portfolio() {
 
                   <Link
                     to="/contact"
-                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-deep-blue hover:text-accent transition-colors"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-indigo-400 hover:text-white transition-colors"
                   >
-                    Soortgelijk project?
-                    <ExternalLink size={14} />
+                    Soortgelijk project? <ExternalLink size={13} />
                   </Link>
                 </div>
               </div>
@@ -170,28 +157,25 @@ export default function Portfolio() {
           </div>
 
           {filtered.length === 0 && (
-            <div className="text-center py-16 text-gray-400">
-              Geen projecten gevonden in deze categorie.
+            <div className="text-center py-16 text-white/30">
+              Geen projecten in deze categorie.
             </div>
           )}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-16 border-t border-gray-100">
+      <section className="bg-[#07071a] py-16 border-t border-white/5">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-2xl font-extrabold text-deep-blue mb-3">
-            Wil jij ook zo'n website?
+          <h2 className="text-2xl font-extrabold text-white mb-3">
+            Wil jij ook zo'n <span className="gradient-text">website?</span>
           </h2>
-          <p className="text-gray-500 mb-6">
-            Neem contact op voor een gratis audit en vrijblijvende offerte.
-          </p>
+          <p className="text-white/40 mb-6 text-sm">Neem contact op voor een gratis audit en vrijblijvende offerte.</p>
           <Link
             to="/contact"
-            className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl inline-flex items-center gap-2 transition-colors"
+            className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl inline-flex items-center gap-2 transition-all glow-orange"
           >
-            Gratis audit aanvragen
-            <ArrowRight size={18} />
+            Gratis audit aanvragen <ArrowRight size={18} />
           </Link>
         </div>
       </section>
