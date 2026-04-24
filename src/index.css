@@ -2,118 +2,60 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --blue: #4F9CF9;
+  --blue-deep: #043873;
+  --blue-soft: #A7CEFC;
+  --yellow: #FFE492;
+  --ink: #212529;
+  --ink-2: #4F4F4F;
+  --bg: #ffffff;
+  --bg-soft: #F7F7EE;
+  --line: #E3E7EA;
+  --green: #0DC46E;
+  --red: #FF4340;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
-
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #07071a;
-    color: #f8fafc;
+    background-color: var(--bg);
+    color: var(--ink);
     margin: 0;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
   }
-
+  * {
+    box-sizing: border-box;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: 0;
+  }
+  ::selection {
+    background: var(--yellow);
+    color: var(--blue-deep);
+  }
   #root {
     width: 100%;
-    max-width: 100%;
-    text-align: left;
-    border: none;
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
   }
 }
 
-@layer utilities {
-  /* Glassmorphism */
-  .glass {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .glass-hover {
-    transition: background 0.2s, border-color 0.2s, transform 0.2s;
-  }
-
-  .glass-hover:hover {
-    background: rgba(255, 255, 255, 0.07);
-    border-color: rgba(255, 255, 255, 0.16);
-    transform: translateY(-3px);
-  }
-
-  /* Gradient text */
-  .gradient-text {
-    background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #fb923c 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .gradient-text-blue {
-    background: linear-gradient(135deg, #60a5fa 0%, #818cf8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Grid pattern background */
-  .grid-pattern {
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  /* Dot pattern */
-  .dot-pattern {
-    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-
-  /* Glow effects */
-  .glow-orange {
-    box-shadow: 0 0 24px rgba(249, 115, 22, 0.35);
-  }
-
-  .glow-orange:hover {
-    box-shadow: 0 0 40px rgba(249, 115, 22, 0.55);
-  }
-
-  .glow-indigo {
-    box-shadow: 0 0 20px rgba(129, 140, 248, 0.3);
-  }
-
-  /* Gradient border card */
-  .gradient-border {
-    position: relative;
-    background: rgba(255, 255, 255, 0.04);
-    border-radius: 1rem;
-  }
-
-  .gradient-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(129,140,248,0.5), rgba(192,132,252,0.3), rgba(249,115,22,0.4));
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
-
-  /* Noise overlay */
-  .noise::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    opacity: 0.03;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-    pointer-events: none;
-  }
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.4); }
+}
+@keyframes fly {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(140px, -30px); }
+  100% { transform: translate(0, 0); }
 }

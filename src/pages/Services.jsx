@@ -10,10 +10,10 @@ const services = [
     features: ['Responsive design', 'Snelle laadtijd', 'SEO-basis ingebouwd', 'Contact formulier', 'SSL & beveiliging', 'Google Analytics', 'Design op maat'],
     cta: 'Vraag een gratis audit aan',
     ctaLink: '/contact',
-    gradient: 'from-indigo-500/15 to-blue-500/15',
-    iconGradient: 'from-indigo-500/30 to-blue-500/30',
-    iconColor: 'text-indigo-400',
-    accentColor: 'text-indigo-400',
+    iconBg: 'bg-primary-50 dark:bg-primary-900/30',
+    iconColor: 'text-primary-600 dark:text-primary-400',
+    border: 'border-primary-100 dark:border-primary-900/40',
+    tagColor: 'text-primary-600 dark:text-primary-400',
   },
   {
     icon: Settings,
@@ -23,10 +23,10 @@ const services = [
     features: ['Maandelijkse updates', 'Security patches', 'Automatische backups', 'Email support', 'Uptime monitoring', 'Content updates', 'Maandelijks rapport'],
     cta: 'Bekijk maintenance plans',
     ctaLink: '/pricing',
-    gradient: 'from-purple-500/15 to-pink-500/15',
-    iconGradient: 'from-purple-500/30 to-pink-500/30',
-    iconColor: 'text-purple-400',
-    accentColor: 'text-purple-400',
+    iconBg: 'bg-violet-50 dark:bg-violet-900/30',
+    iconColor: 'text-violet-600 dark:text-violet-400',
+    border: 'border-violet-100 dark:border-violet-900/40',
+    tagColor: 'text-violet-600 dark:text-violet-400',
   },
   {
     icon: Search,
@@ -36,10 +36,10 @@ const services = [
     features: ['Keyword research', 'Google Business setup', 'Lokale SEO', 'Technische audit', 'Meta tags & structured data', 'Ranking rapport', 'Concurrentieanalyse'],
     cta: 'Start je SEO journey',
     ctaLink: '/contact',
-    gradient: 'from-orange-500/15 to-amber-500/15',
-    iconGradient: 'from-orange-500/30 to-amber-500/30',
-    iconColor: 'text-accent',
-    accentColor: 'text-accent',
+    iconBg: 'bg-amber-50 dark:bg-amber-900/30',
+    iconColor: 'text-amber-600 dark:text-amber-400',
+    border: 'border-amber-100 dark:border-amber-900/40',
+    tagColor: 'text-amber-600 dark:text-amber-400',
   },
 ]
 
@@ -53,49 +53,43 @@ const process = [
 export default function Services() {
   return (
     <>
-      {/* Page header */}
-      <section className="relative bg-[#07071a] py-24 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[500px] h-64 bg-purple-600/15 rounded-full blur-[100px]" />
+      <section className="relative bg-white dark:bg-slate-950 py-24 overflow-hidden">
         <div className="absolute inset-0 grid-pattern" />
+        <div className="absolute top-0 right-0 w-[500px] h-[400px] bg-violet-50 dark:bg-violet-900/20 rounded-full blur-[100px] opacity-70 -translate-y-1/4 translate-x-1/4" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <span className="text-accent font-semibold text-sm uppercase tracking-widest">Services</span>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-white mt-3 mb-4">
-            Alles voor jouw{' '}
-            <span className="gradient-text">online groei</span>
+          <span className="section-tag">Services</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mt-4 mb-4">
+            Alles voor jouw <span className="gradient-text">online groei</span>
           </h1>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Van een nieuwe website tot SEO en onderhoud – wij bieden alles wat lokale bedrijven nodig hebben.
           </p>
         </div>
       </section>
 
-      {/* Services */}
-      <section className="bg-[#09091e] py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+      <section className="bg-slate-50 dark:bg-slate-900 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           {services.map((service, index) => {
             const Icon = service.icon
             return (
-              <div key={service.title} className={`grid lg:grid-cols-2 gap-10 items-center`}>
+              <div key={service.title} className="grid lg:grid-cols-2 gap-12 items-center">
                 <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div className={`inline-flex items-center justify-center w-14 h-14 bg-gradient-to-br ${service.iconGradient} rounded-2xl mb-5`}>
+                  <div className={`inline-flex items-center justify-center w-14 h-14 ${service.iconBg} rounded-2xl mb-5`}>
                     <Icon size={26} className={service.iconColor} />
                   </div>
-                  <h2 className="text-3xl font-extrabold text-white mb-3">{service.title}</h2>
-                  <p className={`font-semibold mb-4 ${service.accentColor}`}>{service.tagline}</p>
-                  <p className="text-white/40 leading-relaxed mb-6 text-sm">{service.desc}</p>
-                  <Link
-                    to={service.ctaLink}
-                    className="bg-accent hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-xl inline-flex items-center gap-2 transition-all glow-orange"
-                  >
+                  <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-3">{service.title}</h2>
+                  <p className={`font-semibold mb-4 ${service.tagColor}`}>{service.tagline}</p>
+                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6 text-sm">{service.desc}</p>
+                  <Link to={service.ctaLink} className="btn-primary px-6 py-3 gap-2">
                     {service.cta} <ArrowRight size={16} />
                   </Link>
                 </div>
-                <div className={`bg-gradient-to-br ${service.gradient} glass rounded-2xl p-8 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <h3 className="font-semibold text-white/60 mb-5 text-xs uppercase tracking-widest">Inbegrepen</h3>
+                <div className={`card rounded-2xl p-8 ${service.border} ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                  <h3 className="font-semibold text-slate-400 dark:text-slate-500 mb-5 text-xs uppercase tracking-widest">Inbegrepen</h3>
                   <ul className="space-y-3">
                     {service.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3 text-sm text-white/70">
-                        <CheckCircle size={16} className="text-accent shrink-0" />
+                      <li key={feature} className="flex items-center gap-3 text-sm text-slate-700 dark:text-slate-300">
+                        <CheckCircle size={16} className="text-green-500 shrink-0" />
                         {feature}
                       </li>
                     ))}
@@ -107,42 +101,39 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Process */}
-      <section className="bg-[#07071a] py-24 relative overflow-hidden">
+      <section className="bg-white dark:bg-slate-950 py-24 relative overflow-hidden">
         <div className="absolute inset-0 dot-pattern" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="text-accent font-semibold text-sm uppercase tracking-widest">Hoe werkt het</span>
-            <h2 className="text-3xl font-extrabold text-white mt-3">
+            <span className="section-tag">Hoe werkt het</span>
+            <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mt-4">
               Ons <span className="gradient-text">werkproces</span>
             </h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {process.map((p) => (
-              <div key={p.step} className="glass glass-hover rounded-2xl p-6 text-center">
-                <div className="text-4xl font-black gradient-text mb-3">{p.step}</div>
-                <h3 className="font-bold text-white mb-2 text-sm">{p.title}</h3>
-                <p className="text-xs text-white/40">{p.desc}</p>
+              <div key={p.step} className="card card-hover rounded-2xl p-6 text-center">
+                <div className="w-12 h-12 bg-primary-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-white font-bold text-sm">
+                  {p.step}
+                </div>
+                <h3 className="font-bold text-slate-900 dark:text-white mb-2 text-sm">{p.title}</h3>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{p.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Pricing preview */}
-      <section className="relative bg-[#09091e] py-16 overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-32 bg-accent/10 rounded-full blur-[60px]" />
+      <section className="bg-primary-600 py-16 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-80 h-80 bg-white opacity-5 rounded-full blur-[80px]" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-3">
             Transparante prijzen, geen verrassingen
           </h2>
-          <p className="text-white/40 mb-6 text-sm">
+          <p className="text-primary-100 mb-6 text-sm">
             Starter €99 · Standard €150 · Professional €299 · Premium €499
           </p>
-          <Link
-            to="/pricing"
-            className="bg-accent hover:bg-orange-600 text-white font-bold px-8 py-3.5 rounded-xl inline-flex items-center gap-2 transition-all glow-orange"
-          >
+          <Link to="/pricing" className="bg-white text-primary-600 font-bold px-8 py-3.5 rounded-xl inline-flex items-center gap-2 hover:bg-primary-50 transition-colors shadow-btn">
             Bekijk alle prijzen <ArrowRight size={18} />
           </Link>
         </div>
