@@ -1,4 +1,5 @@
 import { Eyebrow, Underline, h2Style } from '../components/UI'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const steps = [
   { n: '01', t: 'Discovery', d: 'Twee workshops. We distilleren doel, doelgroep en differentiator. Jij krijgt een brand brief die sticky is.' },
@@ -8,8 +9,9 @@ const steps = [
 ]
 
 export default function Process() {
+  const isMobile = useIsMobile()
   return (
-    <section id="proces" style={{ padding: '120px 32px', background: 'var(--blue-deep)', color: '#fff', position: 'relative', overflow: 'hidden' }}>
+    <section id="proces" style={{ padding: isMobile ? '60px 20px' : '120px 32px', background: 'var(--blue-deep)', color: '#fff', position: 'relative', overflow: 'hidden' }}>
       <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.12 }} viewBox="0 0 1400 700" preserveAspectRatio="xMidYMid slice">
         {Array.from({ length: 60 }).map((_, i) => {
           const x = (i * 73) % 1400, y = (i * 131) % 700
@@ -27,11 +29,12 @@ export default function Process() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 0, borderTop: '1px solid rgba(255,255,255,.15)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: 0, borderTop: '1px solid rgba(255,255,255,.15)' }}>
           {steps.map((s, i) => (
             <div key={s.n} style={{
-              padding: '32px 28px 28px',
-              borderRight: i < 3 ? '1px solid rgba(255,255,255,.15)' : 'none',
+              padding: isMobile ? '24px 16px 20px' : '32px 28px 28px',
+              borderRight: isMobile ? (i % 2 === 0 ? '1px solid rgba(255,255,255,.15)' : 'none') : (i < 3 ? '1px solid rgba(255,255,255,.15)' : 'none'),
+              borderBottom: isMobile && i < 2 ? '1px solid rgba(255,255,255,.15)' : 'none',
               position: 'relative',
             }}>
               <div style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 14, color: 'var(--yellow)', fontWeight: 500, marginBottom: 20 }}>

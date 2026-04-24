@@ -1,5 +1,6 @@
 import { Eyebrow, Underline, Btn, h2Style } from '../components/UI'
 import { CheckIcon } from '../components/Icons'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const plans = [
   {
@@ -26,6 +27,7 @@ const plans = [
 ]
 
 function PriceCard({ name, badge, price, sub, tagline, features, cta, kind, highlight }) {
+  const isMobile = useIsMobile()
   return (
     <div style={{
       background: highlight ? 'var(--blue-deep)' : '#fff',
@@ -33,7 +35,7 @@ function PriceCard({ name, badge, price, sub, tagline, features, cta, kind, high
       borderRadius: 22, padding: '36px 32px',
       border: highlight ? '1px solid var(--blue-deep)' : '1px solid var(--line)',
       position: 'relative',
-      transform: highlight ? 'scale(1.02)' : 'scale(1)',
+      transform: highlight && !isMobile ? 'scale(1.02)' : 'scale(1)',
       boxShadow: highlight ? '0 30px 60px -20px rgba(4,56,115,.35)' : 'none',
       display: 'flex', flexDirection: 'column',
     }}>
@@ -70,8 +72,9 @@ function PriceCard({ name, badge, price, sub, tagline, features, cta, kind, high
 }
 
 export default function Pricing() {
+  const isMobile = useIsMobile()
   return (
-    <section id="tarieven" style={{ padding: '120px 32px', background: 'var(--bg-soft)' }}>
+    <section id="tarieven" style={{ padding: isMobile ? '60px 20px' : '120px 32px', background: 'var(--bg-soft)' }}>
       <div style={{ maxWidth: 1360, margin: '0 auto' }}>
         <div style={{ textAlign: 'center', maxWidth: 720, margin: '0 auto 60px' }}>
           <Eyebrow center>Tarieven</Eyebrow>
@@ -82,7 +85,7 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 20, alignItems: 'stretch' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap: 20, alignItems: 'stretch' }}>
           {plans.map(p => <PriceCard key={p.name} {...p} />)}
         </div>
 

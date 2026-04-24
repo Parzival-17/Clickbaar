@@ -1,4 +1,5 @@
 import { Btn, Underline } from '../components/UI'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 function AvailCard({ day, slot, flat }) {
   return (
@@ -21,13 +22,14 @@ function AvailCard({ day, slot, flat }) {
 }
 
 export default function CTA() {
+  const isMobile = useIsMobile()
   return (
-    <section style={{ padding: '80px 32px' }}>
+    <section style={{ padding: isMobile ? '40px 20px' : '80px 32px' }}>
       <div style={{
         maxWidth: 1360, margin: '0 auto',
         background: 'var(--yellow)', borderRadius: 28,
-        padding: '80px 60px', position: 'relative', overflow: 'hidden',
-        display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 40, alignItems: 'center',
+        padding: isMobile ? '48px 24px' : '80px 60px', position: 'relative', overflow: 'hidden',
+        display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.2fr 1fr', gap: 40, alignItems: 'center',
       }}>
         <svg style={{ position: 'absolute', right: -30, top: -30, width: 360, height: 360, opacity: 0.5 }} viewBox="0 0 200 200">
           <circle cx="100" cy="100" r="70" fill="none" stroke="var(--blue-deep)" strokeWidth="1.5" strokeDasharray="3 6" />

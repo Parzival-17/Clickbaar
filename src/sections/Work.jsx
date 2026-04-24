@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Eyebrow, Underline, Btn, h2Style } from '../components/UI'
 import { ArrowIcon } from '../components/Icons'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const cases = [
   { tag: 'E-commerce · 2026', name: 'Noordkaap', blurb: 'Headless Shopify rebuild. +312% omzet uit organisch verkeer in 4 maanden.', bg: 'linear-gradient(135deg,#043873,#4F9CF9)', color: '#FFE492' },
@@ -95,8 +96,9 @@ function WideCaseArt() {
 }
 
 export default function Work() {
+  const isMobile = useIsMobile()
   return (
-    <section id="werk" style={{ padding: '120px 32px' }}>
+    <section id="werk" style={{ padding: isMobile ? '60px 20px' : '120px 32px' }}>
       <div style={{ maxWidth: 1360, margin: '0 auto' }}>
         <div style={{ display: 'flex', alignItems: 'end', justifyContent: 'space-between', marginBottom: 60, flexWrap: 'wrap', gap: 20 }}>
           <div>
@@ -105,7 +107,7 @@ export default function Work() {
           </div>
           <Btn kind="ghost">Volledige portfolio</Btn>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: 20 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.4fr 1fr', gap: 20 }}>
           <CaseCard {...cases[0]} big />
           <div style={{ display: 'grid', gap: 20 }}>
             <CaseCard {...cases[1]} />

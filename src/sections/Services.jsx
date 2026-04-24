@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Eyebrow, Underline, h2Style } from '../components/UI'
 import { LayersIcon, ClickIcon, BoltIcon, GaugeIcon, ArrowIcon } from '../components/Icons'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 const items = [
   { icon: LayersIcon, title: 'Strategie & merk', desc: 'Positionering, messaging en design system. We vertrekken niet vanuit wireframes — we vertrekken vanuit je klant.' },
@@ -47,10 +48,11 @@ function ServiceCard({ icon: Icon, title, desc, n }) {
 }
 
 export default function Services() {
+  const isMobile = useIsMobile()
   return (
-    <section id="diensten" style={{ padding: '120px 32px', background: 'var(--bg-soft)' }}>
+    <section id="diensten" style={{ padding: isMobile ? '60px 20px' : '120px 32px', background: 'var(--bg-soft)' }}>
       <div style={{ maxWidth: 1360, margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 60, alignItems: 'end', marginBottom: 70 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1.2fr', gap: isMobile ? 20 : 60, alignItems: 'end', marginBottom: 70 }}>
           <div>
             <Eyebrow>Diensten</Eyebrow>
             <h2 style={h2Style}>Eén team,<br />vier <Underline>superkrachten</Underline>.</h2>
@@ -60,7 +62,7 @@ export default function Services() {
             geen ping-pong tussen bureaus. Eén vaste lead, één prijs, één deadline.
           </p>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 20 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: 20 }}>
           {items.map((it, i) => <ServiceCard key={i} {...it} n={i + 1} />)}
         </div>
       </div>

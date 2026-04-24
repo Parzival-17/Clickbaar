@@ -1,11 +1,13 @@
 import { Btn } from '../components/UI'
 import { BoltIcon } from '../components/Icons'
+import { useIsMobile } from '../hooks/useIsMobile'
 
 export default function Hero() {
   const headline = "Websites die écht klikken."
+  const isMobile = useIsMobile()
 
   return (
-    <section style={{ padding: '80px 32px 120px', position: 'relative', overflow: 'hidden' }}>
+    <section style={{ padding: isMobile ? '60px 20px 80px' : '80px 32px 120px', position: 'relative', overflow: 'hidden' }}>
       <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.25, pointerEvents: 'none' }} viewBox="0 0 1400 800" preserveAspectRatio="none">
         <defs>
           <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
@@ -19,7 +21,7 @@ export default function Hero() {
         </mask>
       </svg>
 
-      <div style={{ maxWidth: 1360, margin: '0 auto', display: 'grid', gridTemplateColumns: '1.05fr 1fr', gap: 80, alignItems: 'center', position: 'relative' }}>
+      <div style={{ maxWidth: 1360, margin: '0 auto', display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1.05fr 1fr', gap: isMobile ? 40 : 80, alignItems: 'center', position: 'relative' }}>
         <div>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: 10,
@@ -64,7 +66,7 @@ export default function Hero() {
             </Btn>
           </div>
 
-          <div style={{ display: 'flex', gap: 44, marginTop: 56, flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: isMobile ? 24 : 44, marginTop: isMobile ? 40 : 56, flexWrap: 'wrap' }}>
             {[['+312%', 'gem. conversie na launch'], ['6 wkn', 'van brief tot live'], ['4.9/5', 'klantbeoordeling']].map(([a, b]) => (
               <div key={b}>
                 <div style={{ fontSize: 30, fontWeight: 800, color: 'var(--blue-deep)', letterSpacing: '-0.03em' }}>{a}</div>
@@ -74,7 +76,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <HeroVisual />
+        {!isMobile && <HeroVisual />}
       </div>
     </section>
   )
