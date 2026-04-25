@@ -61,7 +61,7 @@ export default function Hero() {
             <Btn kind="ghost" size="lg" icon={false}>
               <span style={{ display: 'inline-flex', alignItems: 'center', gap: 10 }}>
                 <span style={{ width: 28, height: 28, borderRadius: '50%', background: 'var(--blue-deep)', display: 'grid', placeItems: 'center', color: 'var(--yellow)' }}>▶</span>
-                Bekijk ons werk — 2 min
+                Bekijk ons werk â€” 2 min
               </span>
             </Btn>
           </div>
@@ -106,7 +106,7 @@ function HeroVisual() {
           <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#FFBD44' }} />
           <span style={{ width: 11, height: 11, borderRadius: '50%', background: '#00CA4E' }} />
           <div style={{ flex: 1, margin: '0 14px', height: 20, borderRadius: 6, background: '#fff', fontSize: 11, color: '#888', display: 'flex', alignItems: 'center', padding: '0 10px', fontFamily: 'JetBrains Mono,monospace' }}>
-            clickbaar.nl/cases/voorbeeld
+            Klikbaar.nl/cases/voorbeeld
           </div>
         </div>
         <div style={{ padding: '26px 26px 18px', display: 'flex', flexDirection: 'column', gap: 14 }}>
@@ -136,7 +136,7 @@ function HeroVisual() {
         <div style={{
           marginLeft: -4, marginTop: 22, padding: '6px 12px', borderRadius: '0 10px 10px 10px',
           background: 'var(--blue-deep)', color: '#fff', fontSize: 13, fontWeight: 600, whiteSpace: 'nowrap',
-        }}>jij · net nu</div>
+        }}>jij Â· net nu</div>
       </div>
 
       <div style={{

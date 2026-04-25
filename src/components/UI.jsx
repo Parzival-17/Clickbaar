@@ -17,15 +17,16 @@ export function Logo({ variant = 'bracket', color = 'var(--blue-deep)' }) {
       </div>
       <div style={{ fontWeight: 800, fontSize: 22, letterSpacing: '-0.02em' }}>
         {variant === 'bracket'
-          ? <>Clickbaar<span style={{ color: 'var(--blue)' }}>.</span></>
-          : 'Clickbaar'}
+          ? <>Klikbaar<span style={{ color: 'var(--blue)' }}>.</span></>
+          : 'Klikbaar'}
       </div>
     </div>
   )
 }
 
-export function Btn({ children, kind = 'primary', size = 'md', onClick, icon = true }) {
+export function Btn({ children, kind = 'primary', size = 'md', onClick, icon = true, fullWidth = false, type = 'button', disabled = false }) {
   const base = {
+    width: fullWidth ? '100%' : 'auto',
     display: 'inline-flex', alignItems: 'center', gap: 10,
     borderRadius: 10, fontWeight: 600, letterSpacing: '-0.01em',
     padding: size === 'lg' ? '18px 26px' : '14px 22px',
@@ -41,7 +42,7 @@ export function Btn({ children, kind = 'primary', size = 'md', onClick, icon = t
     white:   { ...base, background: '#fff', color: 'var(--blue-deep)' },
   }
   return (
-    <button onClick={onClick} style={styles[kind]}
+    <button type={type} onClick={onClick} disabled={disabled} style={{...styles[kind], opacity: disabled ? 0.55 : 1, cursor: disabled ? 'not-allowed' : 'pointer'}}
       onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-1px)'}
       onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}>
       {children}
@@ -62,7 +63,7 @@ export function Eyebrow({ children, light, center }) {
       color: light ? 'var(--yellow)' : 'var(--blue)',
       fontFamily: 'JetBrains Mono, monospace',
       textAlign: center ? 'center' : 'left',
-    }}>— {children}</div>
+    }}>Ã¢â‚¬â€ {children}</div>
   )
 }
 

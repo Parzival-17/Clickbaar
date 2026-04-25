@@ -59,3 +59,57 @@
   50% { transform: translate(140px, -30px); }
   100% { transform: translate(0, 0); }
 }
+
+/* ── Global mobile responsiveness ── */
+@media (max-width: 768px) {
+  /* Sections */
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Typography scale-down */
+  h1 { font-size: clamp(36px, 9vw, 56px) !important; }
+  h2 { font-size: clamp(28px, 7vw, 48px) !important; }
+
+  /* Grid overrides for common layouts */
+  [style*="grid-template-columns: 1.05fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns: repeat(2"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Pricing cards */
+  [style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Process steps */
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Footer grid handled inline */
+
+  /* Hero padding */
+  [style*="padding: '80px 32px 120px'"] {
+    padding: 60px 20px 80px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Process steps single column on very small screens */
+  [style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Form grid single col */
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Pricing form padding */
+  form[style] {
+    padding: 24px 20px !important;
+  }
+}

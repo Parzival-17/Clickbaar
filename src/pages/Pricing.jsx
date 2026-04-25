@@ -42,16 +42,16 @@ const plans = [
 ]
 
 const addons = [
-  { name: 'Maintenance Plan', price: '€29/mnd', desc: 'Updates, security & support' },
-  { name: 'SEO Package', price: '€49/mnd', desc: 'Maandelijkse SEO-optimalisatie' },
-  { name: 'Design Updates', price: '€79/mnd', desc: 'Onbeperkt kleine aanpassingen' },
+  { name: 'Maintenance Plan', price: 'â‚¬29/mnd', desc: 'Updates, security & support' },
+  { name: 'SEO Package', price: 'â‚¬49/mnd', desc: 'Maandelijkse SEO-optimalisatie' },
+  { name: 'Design Updates', price: 'â‚¬79/mnd', desc: 'Onbeperkt kleine aanpassingen' },
 ]
 
 const faqs = [
   { q: 'Kan ik later upgraden?', a: 'Ja! Je kan altijd upgraden naar een hoger plan. We berekenen het verschil en passen de website aan.' },
   { q: 'Hoe lang duurt het bouwen?', a: 'Standard websites in 5-7 werkdagen. Professional en Premium 7-14 werkdagen.' },
   { q: 'Wat is inbegrepen in de prijs?', a: 'Domain, hosting, SSL, responsief design en SEO-basis. Geen verborgen kosten.' },
-  { q: 'Hoe werkt de support?', a: 'Via email (info@clickbaar.nl). We antwoorden binnen 24-48 uur. Premium krijgt prioriteit.' },
+  { q: 'Hoe werkt de support?', a: 'Via email (info@Klikbaar.nl). We antwoorden binnen 24-48 uur. Premium krijgt prioriteit.' },
   { q: 'Heb ik technische kennis nodig?', a: 'Nee! Wij regelen alles. Je hoeft niks te weten van websites of hosting.' },
   { q: 'Wat als ik niet tevreden ben?', a: 'We werken op revisierondes en stoppen niet totdat jij blij bent.' },
 ]
@@ -122,7 +122,7 @@ export default function Pricing() {
                   </p>
                   <div className="flex items-end gap-1 mb-1">
                     <span className={`text-4xl font-black ${plan.popular ? 'text-white' : 'text-slate-900 dark:text-white'}`}>
-                      €{plan.price}
+                      â‚¬{plan.price}
                     </span>
                     <span className={`text-sm mb-1.5 ${plan.popular ? 'text-primary-200' : 'text-slate-400 dark:text-slate-500'}`}>
                       eenmalig

@@ -16,7 +16,7 @@ function AvailCard({ day, slot, flat }) {
       <button style={{
         background: 'var(--blue-deep)', color: 'var(--yellow)',
         borderRadius: 8, padding: '8px 14px', fontSize: 13, fontWeight: 600, cursor: 'pointer',
-      }}>Boek →</button>
+      }}>Boek â†’</button>
     </div>
   )
 }
@@ -47,14 +47,14 @@ export default function CTA() {
           </p>
           <div style={{ display: 'flex', gap: 12, marginTop: 32, flexWrap: 'wrap' }}>
             <Btn kind="dark" size="lg">Plan kennismaking</Btn>
-            <Btn kind="ghost" size="lg" icon={false}>hello@clickbaar.nl</Btn>
+            <Btn kind="ghost" size="lg" icon={false}>hello@Klikbaar.nl</Btn>
           </div>
         </div>
 
         <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <AvailCard day="Dinsdag 28 apr" slot="10:00 – 10:30" />
-          <AvailCard day="Woensdag 29 apr" slot="14:00 – 14:30" flat />
-          <AvailCard day="Vrijdag 1 mei" slot="09:30 – 10:00" flat />
+          <AvailCard day="Dinsdag 28 apr" slot="10:00 â€“ 10:30" />
+          <AvailCard day="Woensdag 29 apr" slot="14:00 â€“ 14:30" flat />
+          <AvailCard day="Vrijdag 1 mei" slot="09:30 â€“ 10:00" flat />
         </div>
       </div>
     </section>

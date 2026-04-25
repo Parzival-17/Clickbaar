@@ -14,7 +14,7 @@ const values = [
     icon: DollarSign,
     title: 'Betaalbaar',
     desc: 'Kwaliteit hoeft niet duur te zijn',
-    detail: 'Vanaf €99 voor een professionele website. Transparante prijzen, geen verborgen kosten.',
+    detail: 'Vanaf â‚¬99 voor een professionele website. Transparante prijzen, geen verborgen kosten.',
     iconBg: 'bg-green-50 dark:bg-green-900/30',
     iconColor: 'text-green-600 dark:text-green-400',
   },
@@ -29,12 +29,12 @@ const values = [
 ]
 
 const whyPoints = [
-  { icon: MessageSquare, text: 'Geen jargon – alles begrijpelijk uitgelegd' },
-  { icon: Clock, text: 'Snelle turnaround – gemiddeld 5-7 werkdagen' },
-  { icon: Headphones, text: 'Persoonlijke service – direct contact met het team' },
-  { icon: CheckCircle, text: 'Langetermijn support – we laten je niet vallen' },
-  { icon: Target, text: 'Lokale focus – we kennen de Nederlandse markt' },
-  { icon: TrendingUp, text: 'Resultaatgericht – websites die écht werken' },
+  { icon: MessageSquare, text: 'Geen jargon â€“ alles begrijpelijk uitgelegd' },
+  { icon: Clock, text: 'Snelle turnaround â€“ gemiddeld 5-7 werkdagen' },
+  { icon: Headphones, text: 'Persoonlijke service â€“ direct contact met het team' },
+  { icon: CheckCircle, text: 'Langetermijn support â€“ we laten je niet vallen' },
+  { icon: Target, text: 'Lokale focus â€“ we kennen de Nederlandse markt' },
+  { icon: TrendingUp, text: 'Resultaatgericht â€“ websites die Ã©cht werken' },
 ]
 
 const team = [
@@ -65,7 +65,7 @@ export default function OverOns() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <span className="section-tag">Over ons</span>
           <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mt-4 mb-4">
-            Wie is <span className="gradient-text">Clickbaar?</span>
+            Wie is <span className="gradient-text">Klikbaar?</span>
           </h1>
           <p className="text-slate-500 dark:text-slate-400 text-lg max-w-2xl mx-auto">
             Een gepassioneerde web design agency vanuit Heiloo, Noord-Holland.
@@ -84,11 +84,11 @@ export default function OverOns() {
               </h2>
               <div className="border-l-4 border-primary-200 dark:border-primary-700 pl-5 py-2 mb-6 bg-primary-50 dark:bg-primary-900/20 rounded-r-xl">
                 <p className="text-slate-600 dark:text-slate-300 italic leading-relaxed text-sm">
-                  "Bij Clickbaar geloven we dat elke lokale onderneming een geweldige website verdient. Niet ingewikkeld. Niet duur. Gewoon effectief."
+                  "Bij Klikbaar geloven we dat elke lokale onderneming een geweldige website verdient. Niet ingewikkeld. Niet duur. Gewoon effectief."
                 </p>
               </div>
               <p className="text-slate-500 dark:text-slate-400 leading-relaxed mb-6 text-sm">
-                Veel kleine bedrijven lopen klanten mis omdat ze geen goede online aanwezigheid hebben. Wij lossen dat op – met professionele websites die betaalbaar zijn en snel worden opgeleverd.
+                Veel kleine bedrijven lopen klanten mis omdat ze geen goede online aanwezigheid hebben. Wij lossen dat op â€“ met professionele websites die betaalbaar zijn en snel worden opgeleverd.
               </p>
               <Link to="/contact" className="btn-primary px-6 py-3 gap-2">
                 Praat met ons <ArrowRight size={16} />
@@ -147,7 +147,7 @@ export default function OverOns() {
             <div>
               <span className="section-tag">Waarom ons kiezen</span>
               <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white mt-4 mb-8 leading-tight">
-                Wat maakt Clickbaar <span className="gradient-text">anders?</span>
+                Wat maakt Klikbaar <span className="gradient-text">anders?</span>
               </h2>
               <div className="space-y-3">
                 {whyPoints.map((point) => {
